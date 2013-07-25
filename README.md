@@ -1,6 +1,6 @@
-Shift8Creative - JavaScript Sandbox
+Shift8Creative - Sandbox
 ==========
 
-This repository contains a bunch of JavaScript lirbaries and files along with some HTML and CSS to help illustrate some examples.
+This repository contains a bunch of libraries and files to help illustrate some things.
 
 It is a playground for experimentation and education.
