@@ -4,4 +4,3 @@ pygments: true
 timezone: US/Central
 paginate: 1
 paginate_path: "blog/page:num"
-destination: sandbox

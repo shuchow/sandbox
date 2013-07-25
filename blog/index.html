@@ -15,55 +15,52 @@ title: The Sandbox Blog
 </div>
 {% endfor %}
 
-<!-- Pagination links -->
-<div class="pagination">
+	<!-- Pagination links -->
+	<div class="pagination">
+		<ul class="pages">
+			<!-- PREVIOUS PAGE -->
+			<li>
+			{% if paginator.previous_page %}
+				{% if paginator.previous_page == 1 %}
+					<a href="/sandbox/blog">&laquo;</a>
+				{% else %}
+					<a href="/sandbox/blog/page{{ paginator.previous_page_path }}">&laquo;</a>
+				{% endif %}
 
-
-
-	<ul class="pages">
-		<!-- PREVIOUS PAGE -->
-		<li>
-		{% if paginator.previous_page %}
-			{% if paginator.previous_page == 1 %}
-				<a href="/sandbox/blog">&laquo;</a>
 			{% else %}
-				<a href="/sandbox/blog/page{{ paginator.previous_page_path }}">&laquo;</a>
+				<span class="previous disabled">&laquo;</span>
 			{% endif %}
+			</li>
 
-		{% else %}
-			<span class="previous disabled">&laquo;</span>
-		{% endif %}
-		</li>
+			<!-- PAGE NUMBERS -->
+			<li class="page">
+				{% if paginator.page == 1 %}
+					<span class="current-page">1</span>
+				{% else %}
+					<a href="/sandbox/blog">1</a>
+				{% endif %}
+			</li>
 
-		<!-- PAGE NUMBERS -->
-		<li class="page">
-			{% if paginator.page == 1 %}
-				<span class="current-page">1</span>
-			{% else %}
-				<a href="/sandbox/blog">1</a>
-			{% endif %}
-		</li>
+			{% for count in (2..paginator.total_pages) %}
+			<li class="page">
+				{% if count == paginator.page %}
+					<span class="current-page">{{ count }}</span>
+				{% else %}
+					<a href="/sandbox/blog/page{{ count }}">{{ count }}</a>
+				{% endif %}
+			</li>
+			{% endfor %}
 
-		{% for count in (2..paginator.total_pages) %}
-		<li class="page">
-			{% if count == paginator.page %}
-				<span class="current-page">{{ count }}</span>
-			{% else %}
-				<a href="/sandbox/blog/page{{ count }}">{{ count }}</a>
-			{% endif %}
-		</li>
-		{% endfor %}
+			<!-- NEXT PAGE -->
+			<li>
+				{% if paginator.next_page %}
+					<a href="/sandbox/blog/page{{ paginator.next_page }}" class="next">&raquo;</a>
+				{% else %}
+					<span class="next ">&raquo;</span>
+				{% endif %}
+			</li>
+		</ul>
 
-		<!-- NEXT PAGE -->
-		<li>
-			{% if paginator.next_page %}
-				<a href="/sandbox/blog/page{{ paginator.next_page }}" class="next">&raquo;</a>
-			{% else %}
-				<span class="next ">&raquo;</span>
-			{% endif %}
-		</li>
-	</ul>
-
-	<br />
-	<small><em><span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span></em></small>
-</div>
+		<br />
+		<small><em><span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span></em></small>
+	</div>
