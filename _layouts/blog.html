@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" lang="en" ng-app="mainApp" id="top">
+	<head>
+		<title>{{ page.title }}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Various front-end web development exmaples and experiements.">
+		<meta name="author" content="Tom Maiaroto">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+		
+		<!-- Angular.js -->
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+		
+		<!-- Lovely Angular.js Modules -->
+		<script type="text/javascript" src="/bower_components/angular-ui/build/angular-ui.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-ui-utils/modules/jq/jq.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		
+		<!-- Prettify -->
+		<script type="text/javascript" src="/bower_components/google-code-prettify/src/prettify.js"></script>
+		
+		<!-- CSS for the JavaScript above -->
+		<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-css/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome-ie7.min.css" />
+		<link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="/bower_components/angular-ui/build/angular-ui.min.css" />
+		<link rel="stylesheet" type="text/css" href="/bower_components/google-code-prettify/src/prettify.css" />
+
+		<!-- Main Page CSS & JavaScript -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="/css/docs.css" />
+		<script type="text/javascript" src="/js/main.js"></script>
+		
+		<link href="/favicon.png" title="Icon" type="image/x-icon" rel="icon" />
+		<link href="/favicon.png" title="Icon" type="image/x-icon" rel="shortcut icon" />
+	</head>
+	<body>
+		{% include header.html %}
+		
+		<div class="row">
+			<div class="span4">
+			</div>
+			<div class="span8">
+				<h1>{{ page.title }}</h1>
+				{{ page.date | date: "%d %B %Y" }}
+				
+				<section>
+					{{ content }}
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
