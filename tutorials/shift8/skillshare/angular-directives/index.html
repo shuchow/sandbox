@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular.js Directives</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="../../../../bower_components/jquery/jquery.min.js"></script>
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/bootstrap-css/css/bootstrap.min.css" />
+		<script type="text/javascript" src="../../../../bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+		
+		<!-- Angular.js -->
+		<script type="text/javascript" src="../../../../bower_components/angular/angular.min.js"></script>
+		
+		<!-- Prettify (for example code) -->
+		<script type="text/javascript" src="../../../../bower_components/google-code-prettify/src/prettify.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/google-code-prettify/src/prettify.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/google-code-prettify/styles/sons-of-obsidian.css" />
+		
+		<!-- JS -->
+		<script type="text/javascript" src="js/main.js"></script>
+		
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+	</head>
+	<body onload="prettyPrint();" data-spy="scroll" data-target="#side-nav">
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="dropdown pull-left">
+						<a class="brand" href="index.html">Angular.js Directives</a>
+					</div>
+					<ul class="nav">
+						<li class="active"><a href="index.html">Getting Started</a></li>
+						<li><a href="examples.html">Examples</a></li>
+						<li><a href="play.html">Your Turn</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			
+			<div class="row">
+				<div class="span3" id="side-nav">
+					<ul class="span3 nav nav-tabs nav-stacked affix">
+						<li><a href="#getting-angular">Getting Angular.js <i class="icon-chevron-right pull-right"></i></a></li>
+						<li><a href="#bootstrap-angular">Automatic Bootstrap <i class="icon-chevron-right pull-right"></i></a></li>
+						<li><a href="#bootstrap-angular-manually">Deferred Bootstrap <i class="icon-chevron-right pull-right"></i></a></li>
+					</ul>
+				</div>
+				
+				<div class="span8 offset4">
+					<section class="row">
+						<a name="getting-angular" id="getting-angular"></a>
+						<h1 class="thin">1. Getting Angular.js</h1>
+						<p>
+							You can always download it from their <a href="http://angularjs.org/" target="_blank">site</a> or get it from GitHub. However, I like to use <a href="http://bower.io/" target="_blank">Bower</a> if I'm going to download it to my project files. After installing Bower, you can simply run <code>bower install angular</code> from a terminal and it will automatically get Angular for you. Alternatively, it is hosted on <a href="https://developers.google.com/speed/libraries/devguide#angularjs" target="_blank">Google's CDN.</a>
+						</p>
+						<p>
+							You will want to then include it in your HTML page(s). If you were using Google's CDN, it may look like this.
+						</p>
+
+						<pre class="prettyprint"><code>&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"&gt;&lt;/script&gt;</code></pre>
+					</section>
+					
+					<section class="row">
+						<h1 class="thin">2. Bootstrapping Angular.js</h1>
+						<p>
+							Once you've included Angular.js on your page, you'll need to bootstrap it. There are two ways to do this - an "automatic" way and a "manual" or deferred way. Both ways you'll be writing a little JavaScript, so get ready.
+						</p>
+
+						<a name="bootstrap-angular" id="bootstrap-angular"></a>
+						<h3>Automatic Way</h3>
+						<p>
+							If you really want to use Angular.js in a big way, you'll probably want to go with this method. It involves putting an <code>ng-app</code> attribute into your <code>html</code> element. So for example:
+							<pre class="prettyprint"><code>&lt;html ng-app="demoApp"&gt;</code></pre>
+						</p>
+						<p>
+							You should also note that if you're trying to support IE7, you should add an <code>id</code> attribute in addition to the <code>ng-app</code> attribute. For example; <code>id="demoApp"</code> in our case. You can of course name your application whatever you want and note that a different page may very well use a different application. However, you'll most likely just use different controllers. We'll get into that later on.
+						</p>
+						<p>
+							Now, you'll need to just write a little JavaScript, at the very simplest:
+							<pre class="prettyprint"><code>angular.module('demoApp', [], function() {
+	// Your application is now ready!
+});</code></pre>
+						</p>
+						<p>
+							One more note: You do not need to add the <code>ng-app</code> attribute to the <code>&lt;html&gt;</code> element. It could be another element within your page such as a <code>&lt;div&gt;</code> element. Just remember that your controllers, directives, etc. need to be within that element. For this reason, it is very common to use the <code>&lt;html&gt;</code> element since it is the parent for everything.
+						</p>
+
+						<a name="bootstrap-angular-manually" id="bootstrap-angular-manually"></a>
+						<h3>Manual/Deferred Way</h3>
+						<p>
+							If you want to manually bootstrap Angular.js when you want (instead of on page load), you can. Just add the following JavaScript to our page:
+
+						<pre class="prettyprint"><code>// On document ready, bootstrap Angular.js ... But it can be at any time, so long as the module(s) has been defined.
+angular.element(document).ready(function() {
+	// angular.bootstrap(element, ['moduleName'])
+	angular.bootstrap(document, ['demoApp']);
+	// ...so that could be angular.bootstrap(document.getElementById('someDivId', ['demoApp']); instead
+});
+
+// Define the main application module (which could require its own modules).
+var demoApp = angular.module('demoApp', []);
+
+// Adding a controller to the application.
+demoApp.controller('demoController', ['$scope', function($scope) {
+}]);</code></pre>
+						</p>
+						<p>
+							You'll note that I added a controller to the mix here. To actually use that controller, you're going to need to bind it to an element on your page (using Angular's ngController directive). A <code>&lt;div&gt;</code> element serves as a great element for this.
+						</p>
+						<pre class="prettyprint"><code>&lt;div ng-controller="demoController"&gt;&lt;/div&gt;</code></pre>
+
+						<p>
+							You'll also note that we don't have an <code>ng-app</code> attribute anywhere in this case.
+						</p>
+						<p>
+							You can read more details about the Angular.js bootstrap process in <a href="http://docs.angularjs.org/guide/bootstrap" target="_blank">Angular's documentation.</a>
+						</p>
+
+						<div ng-controller="demoController"></div>
+				</section>
+					
+				</div> <!-- end span9 - right side content area -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+		
+		<!-- Just styles for the menu on the left -->
+		<script type="text/javascript">
+			$('[data-spy="scroll"]').bind('activate', function(event) {
+				$('i', $('#side-nav')).removeClass('icon-white');
+				$('i',  $(event.target)).addClass('icon-white');
+			});
+		</script>
+	</body>
+</html>

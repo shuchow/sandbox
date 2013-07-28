@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular.js Directives</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<!-- jQuery -->
+		<script type="text/javascript" src="../../../../bower_components/jquery/jquery.min.js"></script>
+		
+		<!-- Placeholder images -->
+		<script type="text/javascript" src="../../../../bower_components/holderjs/holder.js"></script>
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/bootstrap-css/css/bootstrap.min.css" />
+		<script type="text/javascript" src="../../../../bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+		
+		<!-- Angular.js -->
+		<script type="text/javascript" src="../../../../bower_components/angular/angular.min.js"></script>
+		
+		<!-- Prettify (for example code) -->
+		<script type="text/javascript" src="../../../../bower_components/google-code-prettify/src/prettify.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/google-code-prettify/src/prettify.css" />
+		<link rel="stylesheet" type="text/css" href="../../../../bower_components/google-code-prettify/styles/sons-of-obsidian.css" />
+		
+		<!-- JS -->
+		<script type="text/javascript" src="js/main.js"></script>
+		
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+	</head>
+	<body onload="prettyPrint();" data-spy="scroll" data-target="#side-nav">
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="dropdown pull-left">
+						<a class="brand" href="index.html">Angular.js Directives</a>
+					</div>
+					<ul class="nav">
+						<li><a href="index.html">Getting Started</a></li>
+						<li class="active"><a href="examples.html">Examples</a></li>
+						<li><a href="play.html">Your Turn</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="span12">
+					<section class="row">
+						<a name="getting-angular" id="quick-example"></a>
+						<h1 class="thin">Basic Example</h1>
+						<p>
+							Here's a pretty basic directive. All it does is returns a specific HTML structure that, with Twitter Bootstrap CSS, shows us a thumbnail with caption. Here's a really good example of how Angular.js can save time. Normally, the markup to show a thumbnail in this manner is as follows:
+						<pre class="prettyprint"><code>&lt;div class="span4"&gt;
+	&lt;div class="thumbnail"&gt;
+		&lt;img data-src="holder.js/300x200" alt=""&gt;
+		&lt;h3&gt;Thumbnail label&lt;/h3&gt;
+		&lt;p&gt;Thumbnail caption...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+						</p>
+						<p>
+							By creating a directive Angular.js, we can shorten that to something like:
+							<pre class="prettyprint">&lt;thumbnail src="holder.js/300x200" alt="" label="Thumbnail label" caption="Thumbnail caption..."&gt;&lt;/thumbnail&gt;<code></code></pre>
+						</p>
+						
+						<p>
+							Here they are side by side:
+						</p>
+						
+						<p>
+							<thumbnail src="holder.js/300x200" label="Thumbnail label" caption="This one is the directive" alt=""></thumbnail>
+
+							<div class="span4">
+								<div class="thumbnail">
+									<img data-src="holder.js/300x200" alt="">
+									<h3>Thumbnail label</h3>
+									<p>Thumbnail caption...</p>
+								</div>
+							</div>
+							
+							<br style="clear: left;" />
+						</p>
+						
+						<p>
+							Obviously writing one line of code is much faster than seven and it looks much cleaner. Even though the code wasn't that complex in this case, you could imagine other circumstances where it could be a real time saver. Or how about a whole bunch of thumbnails? You could pass an array or comma separated list of values instead which would be much faster.
+						</p>
+						
+						<p>
+							Don't like the <code>&lt;thumbnail&gt;</code> element? Or do you want to add the ability to render the directive template within a different element such as a <code>&lt;div&gt;</code> element? You can! Let's say that you wanted to control the width with Twitter Bootstrap's CSS and create a <code>&lt;div class="span6"&gt;</code> and put the thumbnail inside that (instead of our example directive above which sets the thumbnail in a span4 div - not allowing us to change the width).
+						</p>
+						
+						<p>
+							Simply change the template in the directive and in the <code>restrict</code> option, ensure you also have an <code>A</code> in there (for "attribute" and obviously E is for element). Then take a div and add an attribute named for the directive. In this case, I'm calling it <code>thumb</code> so it can co-exist with the other thumbnail directive.
+							<pre class="prettyprint"><code>&lt;div thumb class="span6" src="holder.js/470x200" label="Thumbnail within a div" caption="Another directive option..."&gt;&lt;/div&gt;</code></pre>
+						</p>
+						<p>
+							<span class="label label-info">Pro Tip</span> There are actually four options here. E - Element. A - Attribute. C - Class. M - Comment. You can have multiple letter assignments so that you can call your directive in multiple ways. If calling via attribute, the attribute can have a value that is available to the directive code.
+						</p>
+						
+						<br style="clear: left;" />
+						<div thumb="foo" class="span6" src="holder.js/470x200" label="Thumbnail within a div" caption="Another directive option..."></div>
+						<br style="clear: left;" /><br />
+						
+						<h1 class='thin'>External Templates</h1>
+						<p>
+							Your directive templates can be defined within the directive code itself using HTML within JavaScript, or in a separate template file. Using an external HTML template file is particularly useful when your templates are quite complex. Sometimes it's annoying to escape things and write all that HTML within JavaScript. You'll use <code>templateUrl</code> instead of <code>template</code> in your directive to use an external template file. So here's yet another variation of the same directives above - this time with an external template.
+						</p>
+						<p>
+							<div class="alert">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<strong>Warning!</strong> External template files are loaded in asynchronously and, as such, must obide by the browser's same origin security policy. For this reason, if you opened this file directly (instead of serving it through a web server) the directive below will not load.
+							</div>
+						</p>
+						<p>
+							<thumbnail-template src="holder.js/300x200" label="Thumbnail Again" caption="This time with an external template..."></thumbnail-template>
+						</p>
+						
+						<br style="clear: left;" /><br />
+					</section>
+					
+				</div> <!-- end span12 - content area -->
+			</div> <!-- end row -->
+		</div> <!-- end container -->
+		
+		<!-- Just styles for the menu on the left -->
+		<script type="text/javascript">
+			$('[data-spy="scroll"]').bind('activate', function(event) {
+				$('i', $('#side-nav')).removeClass('icon-white');
+				$('i',  $(event.target)).addClass('icon-white');
+			});
+		</script>
+	</body>
+</html>

@@ -1,177 +1,123 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" lang="en" ng-app="mainApp" id="top">
-	<head>
-		<title>Shift8Creative - Sandbox</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Various front-end web development exmaples and experiements.">
-		<meta name="author" content="Tom Maiaroto">
+---
+layout: default
+title: Shift8Creative - Sandbox
+---
 
-		<!-- jQuery -->
-		<script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
-		
-		<!-- Angular.js -->
-		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-		
-		<!-- Lovely Angular.js Modules -->
-		<script type="text/javascript" src="bower_components/angular-ui/build/angular-ui.min.js"></script>
-		<script type="text/javascript" src="bower_components/angular-ui-utils/modules/jq/jq.js"></script>
-		<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-		<script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-		
-		<!-- Prettify -->
-		<script type="text/javascript" src="bower_components/google-code-prettify/src/prettify.js"></script>
-		
-		<!-- CSS for the JavaScript above -->
-		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome-ie7.min.css" />
-		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="bower_components/angular-ui/build/angular-ui.min.css" />
-		<link rel="stylesheet" type="text/css" href="bower_components/google-code-prettify/src/prettify.css" />
+{% include header.html %}
 
-		<!-- Main Page CSS & JavaScript -->
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<link rel="stylesheet" type="text/css" href="css/docs.css" />
-		<script type="text/javascript" src="js/main.js"></script>
-		
-		<link href="favicon.png" title="Icon" type="image/x-icon" rel="icon" />
-		<link href="favicon.png" title="Icon" type="image/x-icon" rel="shortcut icon" />
-	</head>
-	<body>
-		<header class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="dropdown pull-left">
-						<a class="brand" href="http://tmaiaroto.github.io/javascript-sandbox/">Shift<sup style="color: #fc7f0d;">8</sup> Sandbox</a>
-					</div>
-				</div>
-			</div>
-		</header>
-		
-		<div role="main">
+<div role="main">
 
-			<header class="hero-unit" id="overview">
-				<div class="container">
-					<h1 class="thinner-title">The Sandbox</h1>
-					<p class="thin">Welcome. You've come to the right place to play.</p>
-				</div>
-				<div class="bs-docs-social">
-					<div class="container">
-						<ul class="bs-docs-social-buttons">
-							<li>
-								<iframe src="http://ghbtns.com/github-btn.html?user=tmaiaroto&repo=javascript-sandbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-							</li>
-							<li>
-								<iframe src="http://ghbtns.com/github-btn.html?user=tmaiaroto&repo=javascript-sandbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-							</li>
-							<li>
-								<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
-								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-							</li>
-							<li>
-								<!-- Place this tag where you want the +1 button to render. -->
-								<div class="g-plusone" data-size="medium"></div>
-
-								<!-- Place this tag after the last +1 button tag. -->
-								<script type="text/javascript">
-								(function() {
-								  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-								  po.src = 'https://apis.google.com/js/plusone.js';
-								  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-								})();
-								</script>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</header>
-
-			<div class="container">
-				<div class="row">
-					<div class="span4">
-						<img src="img/octocat.png" alt="GitHub" style="display: block; margin: auto; height: 168px" />
-						<h2 class="thin center">GitHub</h2>
-						<p>
-							The sandbox uses <a href="http://pages.github.com" target="_blank">GitHub Pages</a> so code examples and experiments can be seen by the world in one place. GitHub also brings us powerful collaborative features which help facilitate learning.
-						</p>
-					</div>
-
-					<div class="span4">
-						<img src="img/bower-logo.png" alt="Bower" style="display: block; margin: auto; height: 168px" />
-						<h2 class="thin center">Bower</h2>
-						<p>
-							The sandbox leverages <a href="http://bower.io/" target="_blank">Bower</a> to manage packages so things should be kept fairly up to date for you. If not, you can very easily update it yourself. Using this convention, you can also easily add additional packages.
-						</p>
-					</div>
-
-					<div class="span4">
-						<i class='icon-book center' style="font-size: 164px; display: block;"></i>
-						<h2 class="thin center">Education</h2>
-						<p>
-							Come to learn. This repository (and all of its forks) is full of examples, ideas, and experiments. Many of the examples have companion tutorials and screencasts to help you learn and grow as a developer.
-						</p>
-					</div>
-				</div>
-				
-				<hr class="soften" style="margin-bottom:0;" />
-				
-				<section>
-					<h1>Huh? Who? Why? How?</h1>
-					<p>
-						Hi, my name is Tom. I've been a web designer and developer for many years and currently work for myself doing freelance web development. I love contributing to open-source projects and helping people with web development in my spare time.
-					</p>
-					<p>
-						I was in search of a good place to collaborate with others and show people examples that they could re-work and edit themselves. I firmly believe web development education is strongest by interactive example (or playing around). So I figured GitHub might be the missing link. At least for front-end web development.
-					</p>
-					<p>
-						This GitHub repository holds a bunch of pre-loaded assets that let you quickly experiment with HTML and JavaScript. It is a sandbox for everyone, but more importantly it gives me a place to show others examples. It is an educational and experimentation resource.
-					</p>
-					<p>
-						How does it work? Simple, I've removed the <code>master</code> branch so that there is only the <code>gh-pages</code> branch left. GitHub is gracious enough to host static sites for us so this makes it quite easy to then view all of the examples here.
-					</p>
-					<p>
-						GitHub also makes it very easy to collaborate with and fork repositories. So fork this repository and have your very own sandbox!
-					</p>
-					<p>
-						Fork the repository, clone it, make your edits, and commit your code like normal. Then run <code>git push gh-pages</code> and wait a few minutes. Voila! GitHub will render your pages and you can show others what you've done.
-					</p>
-				</section>
-				
-				<section>
-					<h2>But Why Not...?</h2>
-					<p>
-						Yes, there are some other places to host free JavaScript examples such as <a href="http://plnkr.co" target="_blank">Plunker</a> and <a href="http://www.jsfiddle.net" target="_blank">JSFiddle</a> and they are great...They even let you code through your web browser, collaborate, and have forks and revisions...But they are a tiny bit limited...And that's ok, because they are for quick snippets and troubleshooting. You can't really upload images and other assets. Additionally, there's no comments, issues, wiki pages and so on.
-					</p>
-					<p>
-						Most importantly, it's hard to work locally and then push your changes online. Those services are also not really a starting point for an application. You'd be moving your code into GitHub or something else anyway. So I just felt that the tools that GitHub offer are better suited for this. Plus I think GitHub Pages and Jekyll may really be able to help out in some clever ways.
-					</p>
-				</section>
-				
-				<section>
-					<h2>Next Steps</h2>
-					<p>
-						On a continual basis, tutorials will need to be added. I will review and add <strong>your</strong> tutorials if you submit pull requests! Please bear with me on that though as I am busy with other things (paying the bills).
-					</p>
-					<p>
-						I also need to continue setting up a structure for accepting add-ons. I want to keep all tutorials under a <code>tutorials/your-github-username/tutorial-name</code> directory structure. I'd also like to keep a place for experiements and showcase projects. The two overall goals for the immediate future would be education and promotion.
-					</p>
-					<p>
-						There's a lot to figure out and test. Stay tuned for more! I will setup a blog. Here.
-					</p>
-				</section>
-			</div>
-			
+	<header class="hero-unit" id="overview">
+		<div class="container">
+			<h1 class="thinner-title">The Sandbox</h1>
+			<p class="thin">Welcome. You've come to the right place to play.</p>
 		</div>
-		
-		<footer class="footer">
+		<div class="bs-docs-social">
 			<div class="container">
-				<div class="row">
-					<div class="span12">
-						<p>This project uses code from various vendors. Please see their licenses and readme files for copyright and usage information.</p>
-						<p>The code in this repository is for educational purposes only.</p>
-					</div>
-				</div>
+				<ul class="bs-docs-social-buttons">
+					<li>
+						<iframe src="http://ghbtns.com/github-btn.html?user=tmaiaroto&repo=javascript-sandbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+					</li>
+					<li>
+						<iframe src="http://ghbtns.com/github-btn.html?user=tmaiaroto&repo=javascript-sandbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+					</li>
+					<li>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="angularjs">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</li>
+					<li>
+						<!-- Place this tag where you want the +1 button to render. -->
+						<div class="g-plusone" data-size="medium"></div>
+
+						<!-- Place this tag after the last +1 button tag. -->
+						<script type="text/javascript">
+						(function() {
+						  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						  po.src = 'https://apis.google.com/js/plusone.js';
+						  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+						})();
+						</script>
+					</li>
+				</ul>
 			</div>
-		</footer>
-	</body>
-</html>
+		</div>
+	</header>
+
+	<div class="container">
+		<div class="row">
+			<div class="span4">
+				<img src="img/octocat.png" alt="GitHub" style="display: block; margin: auto; height: 168px" />
+				<h2 class="thin center">GitHub</h2>
+				<p>
+					The sandbox uses <a href="http://pages.github.com" target="_blank">GitHub Pages</a> so code examples and experiments can be seen by the world in one place. GitHub also brings us powerful collaborative features which help facilitate learning.
+				</p>
+			</div>
+
+			<div class="span4">
+				<img src="img/bower-logo.png" alt="Bower" style="display: block; margin: auto; height: 168px" />
+				<h2 class="thin center">Bower</h2>
+				<p>
+					The sandbox leverages <a href="http://bower.io/" target="_blank">Bower</a> to manage packages so things should be kept fairly up to date for you. If not, you can very easily update it yourself. Using this convention, you can also easily add additional packages.
+				</p>
+			</div>
+
+			<div class="span4">
+				<i class='icon-book center' style="font-size: 164px; display: block;"></i>
+				<h2 class="thin center">Education</h2>
+				<p>
+					Come to learn. This repository (and all of its forks) is full of examples, ideas, and experiments. Many of the examples have companion tutorials and screencasts to help you learn and grow as a developer.
+				</p>
+			</div>
+		</div>
+
+		<hr class="soften" style="margin-bottom:0;" />
+
+		<section>
+			<h1>Huh? Who? Why? How?</h1>
+			<p>
+				Hi, my name is Tom. I've been a web designer and developer for many years and currently work for myself doing freelance web development. I love contributing to open-source projects and helping people with web development in my spare time.
+			</p>
+			<p>
+				I was in search of a good place to collaborate with others and show people examples that they could re-work and edit themselves. I firmly believe web development education is strongest by interactive example (or playing around). So I figured GitHub might be the missing link. At least for front-end web development.
+			</p>
+			<p>
+				This GitHub repository holds a bunch of pre-loaded assets that let you quickly experiment with HTML and JavaScript. It is a sandbox for everyone, but more importantly it gives me a place to show others examples. It is an educational and experimentation resource.
+			</p>
+			<p>
+				How does it work? Simple, I've removed the <code>master</code> branch so that there is only the <code>gh-pages</code> branch left. GitHub is gracious enough to host static sites for us so this makes it quite easy to then view all of the examples here.
+			</p>
+			<p>
+				GitHub also makes it very easy to collaborate with and fork repositories. So fork this repository and have your very own sandbox!
+			</p>
+			<p>
+				Fork the repository, clone it, make your edits, and commit your code like normal. Then run <code>git push gh-pages</code> and wait a few minutes. Voila! GitHub will render your pages and you can show others what you've done.
+			</p>
+		</section>
+
+		<section>
+			<h2>But Why Not...?</h2>
+			<p>
+				Yes, there are some other places to host free JavaScript examples such as <a href="http://plnkr.co" target="_blank">Plunker</a> and <a href="http://www.jsfiddle.net" target="_blank">JSFiddle</a> and they are great...They even let you code through your web browser, collaborate, and have forks and revisions...But they are a tiny bit limited...And that's ok, because they are for quick snippets and troubleshooting. You can't really upload images and other assets. Additionally, there's no comments, issues, wiki pages and so on.
+			</p>
+			<p>
+				Most importantly, it's hard to work locally and then push your changes online. Those services are also not really a starting point for an application. You'd be moving your code into GitHub or something else anyway. So I just felt that the tools that GitHub offer are better suited for this. Plus I think GitHub Pages and Jekyll may really be able to help out in some clever ways.
+			</p>
+		</section>
+
+		<section>
+			<h2>Next Steps</h2>
+			<p>
+				On a continual basis, tutorials will need to be added. I will review and add <strong>your</strong> tutorials if you submit pull requests! Please bear with me on that though as I am busy with other things (paying the bills).
+			</p>
+			<p>
+				I also need to continue setting up a structure for accepting add-ons. I want to keep all tutorials under a <code>tutorials/your-github-username/tutorial-name</code> directory structure. I'd also like to keep a place for experiements and showcase projects. The two overall goals for the immediate future would be education and promotion.
+			</p>
+			<p>
+				There's a lot to figure out and test. Stay tuned for more! I will setup a blog. Here.
+			</p>
+		</section>
+	</div>
+
+</div>
+
+{% include footer.html %}

@@ -1,0 +1,15 @@
+body {
+	padding-top: 60px;
+}
+.thin {
+	font-weight: 100;
+	letter-spacing: 0.05em;
+}
+pre {
+	padding: 6px !important;
+}
+
+#side-nav li.active a {
+	background: rgb(0, 136, 204);
+	color: #fff;
+}
