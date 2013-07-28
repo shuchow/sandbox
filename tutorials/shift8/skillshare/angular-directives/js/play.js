@@ -3,8 +3,7 @@
 
 /*
 angular.module('demoApp', [], function() {
-	// Make code pretty
-	window.prettyPrint && prettyPrint();
+	// Ready to go!
 });
 */
 
