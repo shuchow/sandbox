@@ -34,7 +34,7 @@ demoApp.directive('thumbnail', function () {
 						'<p>{{caption}}</p>' +
 					'</div>' +
 				'</div>',
-			link: function ($scope, $element, $attrs, ngModel) {
+			link: function ($scope, $element, $attrs) {
 				$scope.label = $attrs.label;
 				$scope.caption = $attrs.caption;
 				$scope.src = $attrs.src;
@@ -54,7 +54,7 @@ demoApp.directive('thumb', function () {
 						'<h3>{{label}}</h3>' +
 						'<p>{{caption}}</p>' +
 					'</div>',
-			link: function ($scope, $element, $attrs, ngModel) {
+			link: function ($scope, $element, $attrs) {
 				$scope.label = $attrs.label;
 				$scope.caption = $attrs.caption;
 				$scope.src = $attrs.src;
@@ -72,8 +72,8 @@ demoApp.directive('thumbnailTemplate', function () {
 			restrict: 'E',
 			replace: true,
 			scope: true,
-			templateUrl: 'templates/thumbnail.html?jsonp=',
-			link: function ($scope, $element, $attrs, ngModel) {
+			templateUrl: 'templates/thumbnail.html',
+			link: function ($scope, $element, $attrs) {
 				$scope.label = $attrs.label;
 				$scope.caption = $attrs.caption;
 				$scope.src = $attrs.src;
